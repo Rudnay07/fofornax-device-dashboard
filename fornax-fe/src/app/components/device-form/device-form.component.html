@@ -1,0 +1,28 @@
+<p-card header="Új eszköz hozzáadása">
+  <form [formGroup]="deviceForm" (ngSubmit)="submitForm()">
+    <div class="p-fluid flex flex-wrap gap-3 align-items-end">
+      <div class="field">
+        <label for="name">Név</label>
+        <input id="name" type="text" pInputText formControlName="name" />
+      </div>
+      <div class="field">
+        <label for="type">Típus</label>
+        <input id="type" type="text" pInputText formControlName="type" />
+      </div>
+      <div class="field">
+        <label for="ip">IP cím</label>
+        <input id="ip" type="text" pInputText formControlName="ip" />
+      </div>
+      <div class="field">
+        <label for="location">Hely</label>
+        <input id="location" type="text" pInputText formControlName="location" />
+      </div>
+      
+    </div>
+    <div class="field" >
+        <p-button type="submit" label="Hozzáadás" icon="pi pi-plus" [disabled]="deviceForm.invalid" ></p-button>
+      </div>
+  </form>
+ 
+</p-card>
+ 

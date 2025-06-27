@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; 
+  align-items: flex-end;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    width: 200px; 
+
+    label {
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  p-button {
+    align-self: flex-start;
+     margin-top: 4px;
+  }
+
+
+}

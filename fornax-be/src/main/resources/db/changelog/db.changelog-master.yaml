@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 202500617-1300
+      author: RudnayR
+      changes:
+        - sqlFile:
+            path: scripts/devices.sql
+            relativeToChangelogFile: true

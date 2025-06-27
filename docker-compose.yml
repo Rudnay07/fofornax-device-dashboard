@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: fornax-postgres
+    environment:
+      POSTGRES_DB: fornaxdb
+      POSTGRES_USER: fornaxuser
+      POSTGRES_PASSWORD: fornaxpass
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - fornax-network
+
+  backend:
+    container_name: fornax-backend
+    build:
+      context: ./fornax-be
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/fornaxdb
+      SPRING_DATASOURCE_USERNAME: fornaxuser
+      SPRING_DATASOURCE_PASSWORD: fornaxpass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
+    networks:
+      - fornax-network
+
+  frontend:
+    container_name: fornax-frontend
+    build:
+      context: ./fornax-fe
+      dockerfile: Dockerfile
+    ports:
+      - '4200:80'
+    depends_on:
+      - backend
+    networks:
+      - fornax-network
+
+volumes:
+  pgdata:
+
+networks:
+  fornax-network:
+    driver: bridge

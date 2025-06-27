@@ -1,0 +1,34 @@
+<p-toast></p-toast>
+
+<div class="container">
+ 
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <h1>Eszközkezelő Dashboard</h1>
+    </div>
+    <div class="p-toolbar-group-end">
+      <div class="field-checkbox">
+        <p-inputSwitch [(ngModel)]="autoRefreshEnabled" (onChange)="toggleAutoRefresh()"></p-inputSwitch>
+        <label class="ml-2">Automatikus frissítés</label>
+      </div>
+    </div>
+  </p-toolbar>
+
+
+  <div class="grid mt-4">
+
+    <div class="col-12 md:col-7">
+      <app-status-chart [chartData]="chartData"></app-status-chart>
+    </div>
+
+
+    <div class="col-12 md:col-5">
+      <app-device-form (addDevice)="handleAddDevice($event)"></app-device-form>
+    </div>
+  </div>
+
+
+  <div class="mt-4">
+    <app-device-list [devices]="devices" (deleteRequest)="handleDeleteDevice($event)"></app-device-list>
+  </div>
+</div>
