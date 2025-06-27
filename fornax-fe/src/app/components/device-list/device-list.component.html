@@ -4,7 +4,6 @@
       <tr>
         <th>Név</th>
         <th>Típus</th>
-        <th>IP Cím</th>
         <th>Hely</th>
         <th>Státusz</th>
         <th>Törlés</th>
@@ -14,7 +13,6 @@
       <tr>
         <td>{{ device.name }}</td>
         <td>{{ device.type }}</td>
-        <td>{{ device.ip }}</td>
         <td>{{ device.location }}</td>
         <td>
           <p-tag [severity]="getStatusSeverity(device.status)" [value]="device.status"></p-tag>
