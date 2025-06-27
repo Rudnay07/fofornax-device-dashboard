@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'; // Fontos a reaktív formokhoz!
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateDeviceDto } from '../../model/device.model';
 import { PRIME_NG_MODULES } from '../../primeng.config';
 
@@ -9,8 +9,8 @@ import { PRIME_NG_MODULES } from '../../primeng.config';
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule, // Szükséges a [formGroup] használatához a HTML-ben
-    ...PRIME_NG_MODULES  // Beemeli a Card, InputText, Button modulokat
+    ReactiveFormsModule,
+    ...PRIME_NG_MODULES
   ],
   templateUrl: './device-form.component.html',
   styleUrls: ['./device-form.component.scss']
